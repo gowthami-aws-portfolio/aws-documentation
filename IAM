@@ -1,0 +1,105 @@
+## IAM – Identity and Access Management
+
+IAM is a global AWS service used to manage authentication and authorization. It helps control access to AWS services in a secure and scalable way.
+
+---
+
+## 1. Authentication
+Authentication verifies *who* is trying to access AWS.
+
+Examples:
+- Logging in with username + password  
+- Using Access Key & Secret Key  
+- Using MFA  
+
+Authentication only confirms identity.  
+Actual permissions depend on attached policies.
+
+---
+
+## 2. Authorization
+Authorization defines *what actions* the user or service can perform.
+
+Authorization is controlled using **IAM Policies**, which specify:
+- Allowed or denied actions  
+- Resources the actions apply to  
+- Optional conditions (IP address, MFA, etc.)
+
+---
+
+# IAM COMPONENTS ::
+
+## 1. Users
+IAM Users represent **individual persons** who need access to AWS.
+
+A user can have:
+- AWS Console access  
+- Programmatic access (CLI/SDK)  
+- Or both  
+
+Use case: Developers, testers, DevOps engineers.
+
+---
+
+## 2. Groups
+Groups are collections of users.  
+Permissions are attached to the group, and all users inherit those permissions.
+
+Use case:  
+Team-wise grouping like “Developers”, “Testers”, “Admins”
+
+This improves consistency and reduces manual effort.
+
+---
+
+## 3. Policies
+Policies are JSON documents that define permissions.
+
+A policy contains:
+- Effect: Allow / Deny  
+- Action: Operations like `s3:GetObject`  
+- Resource: ARNs of resources  
+- Condition: Optional restrictions
+
+Types of policies:
+- AWS Managed Policies  
+- Customer Managed Policies  
+- Inline Policies  
+
+---
+
+## 4. Roles
+Roles are **temporary identities** with permissions.  
+They do not belong to an individual user.  
+They are “assumed” when needed and provide temporary STS credentials.
+
+Who can assume a role?
+- AWS services (EC2, Lambda, ECS)  
+- Users from same account  
+- Users from another AWS account (cross-account)  
+- Identity providers (SSO, AD, Okta)
+
+Examples:
+- An EC2 instance needs S3 access → attach an IAM Role  
+- Lambda accessing DynamoDB  
+- Cross-account admin access  
+
+Roles improve security because no long-term access keys are required.
+
+===============================================================================================================
+
+# Shared Responsibility Model
+
+## What is the IAM Shared Responsibility Model?
+
+AWS manages security *of* the cloud — hardware, data centers, and networking.  
+We manage security *in* the cloud — IAM users, roles, policies, MFA, access permissions, encryption, and networking configurations.
+
+---
+
+# Best Practices
+- Always enable MFA for privileged users  
+- Follow the principle of least privilege  
+- Use roles instead of long-term access keys  
+- Rotate access keys regularly  
+- Use groups instead of attaching policies directly to users  
