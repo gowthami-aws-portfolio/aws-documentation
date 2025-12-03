@@ -1,0 +1,50 @@
+# EC2 – Elastic Compute Cloud
+
+EC2 (Elastic Compute Cloud) is a service used to launch public virtual servers on AWS.  
+It is elastic in nature, which means we can scale up or scale down the instance based on our requirements.
+
+---
+
+## Advantages
+
+### Pay-as-you-go  
+You only pay for what you use.
+
+### Maintenance  
+AWS handles hardware maintenance, upgrades, and security of the infrastructure.
+
+---
+
+## Instance Types (5 main categories)
+
+- General Purpose  
+- Compute Optimized  
+- Memory Optimized  
+- Storage Optimized  
+- Accelerated Computing  
+
+---
+
+## Regions and Availability Zones
+
+### Regions  
+We launch EC2 instances in the region closest to users to reduce latency.
+
+### Availability Zones (AZs)  
+Each region has multiple AZs.  
+If one AZ has an issue, another AZ can take over.  
+This ensures high availability and reduces downtime.
+
+---
+
+## Usage
+
+Applications are deployed inside EC2 instances.  
+We can access EC2 from outside using:
+- Public IP  
+- Elastic IP  
+- Load Balancer  
+- Domain (Route 53)
+
+EC2 works like a traditional server but hosted in the cloud.
+
